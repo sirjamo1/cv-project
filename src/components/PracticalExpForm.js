@@ -1,15 +1,8 @@
 import React from "react";
 
-const PracticalExp = (props) => {
-    const {
-        companyName,
-        position,
-        tasks,
-        startDate,
-        endDate,
-        handlePracticalChange,
-        onSubmitGeneral,
-    } = props;
+const PracticalExpForm = (props) => {
+    const { practical, handlePracticalChange, onSubmitGeneral } = props;
+    const { companyName, position, tasks, startDate, endDate } = practical;
     return (
         <div id="practical-container">
             <h3>Practical</h3>
@@ -29,6 +22,7 @@ const PracticalExp = (props) => {
                     value={companyName}
                     id="companyNameInput"
                     name="companyName"
+                    placeholder="Company Name"
                 ></input>
                 <label>Position</label>
                 <input
@@ -39,6 +33,7 @@ const PracticalExp = (props) => {
                     value={position}
                     id="positionInput"
                     name="position"
+                    placeholder="Position"
                 ></input>
                 <label>Tasks</label>
                 <input
@@ -49,6 +44,7 @@ const PracticalExp = (props) => {
                     value={tasks}
                     id="tasksInput"
                     name="tasks"
+                    placeholder="Tasks"
                 ></input>
                 <label>Start Date</label>
                 <input
@@ -71,9 +67,10 @@ const PracticalExp = (props) => {
                     name="endDate"
                 ></input>
                 <button type="submit">Submit</button>
+                <button>Add Another</button>
             </form>
         </div>
     );
 };
 
-export default PracticalExp;
+export default PracticalExpForm;

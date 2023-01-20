@@ -20,12 +20,55 @@
 
     border: red solid 1px;
 }
-/*👉#education-container {
+#education-container {
+     border: blue solid 1px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-#education-form {
+.education-form {
+     color: blue;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+
+    border: red solid 1px;
 }
 #practical-container {
+     border: blue solid 1px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #practical-form {
+    color: blue;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+
+    border: red solid 1px;
 }
-👈*/
+#cv-container {
+ background-color: rgb(182, 202, 202);
+ width: 800px;
+ height: 1600px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+#full-name {
+
+}
+#cv-contact-container {
+border: 1px solid red;
+}
+#cv-education-container {
+border: 1px solid red;
+}
+#cv-practical-container {
+ border: 1px solid red;
+}

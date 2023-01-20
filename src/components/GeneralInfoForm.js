@@ -1,14 +1,8 @@
 import React from "react";
 
-const GeneralInfo = (props) => {
-    const {
-        firstName,
-        lastName,
-        email,
-        phone,
-        onSubmitGeneral,
-        handleGeneralChange,
-    } = props;
+const GeneralInfoForm = (props) => {
+    const { generalInfo, onSubmitGeneral, handleGeneralChange } = props;
+    const { firstName, lastName, email, phone, edit } = generalInfo;
 
     return (
         <div id="general-info-container">
@@ -16,7 +10,6 @@ const GeneralInfo = (props) => {
             <form
                 id="general-info-form"
                 onSubmit={(e) => {
-
                     e.preventDefault();
                     onSubmitGeneral(e);
                 }}
@@ -30,6 +23,7 @@ const GeneralInfo = (props) => {
                     value={firstName}
                     id="firstNameInput"
                     name="firstName"
+                    placeholder="First Name"
                 ></input>
                 <label>Family name</label>
                 <input
@@ -40,6 +34,7 @@ const GeneralInfo = (props) => {
                     value={lastName}
                     id="lastNameInput"
                     name="lastName"
+                    placeholder="Last Name"
                 ></input>
                 <label>E-mail</label>
                 <input
@@ -50,6 +45,7 @@ const GeneralInfo = (props) => {
                     value={email}
                     id="emailInput"
                     name="email"
+                    placeholder="email"
                 ></input>
                 <label>Phone</label>
                 <input
@@ -60,11 +56,12 @@ const GeneralInfo = (props) => {
                     value={phone}
                     id="phoneInput"
                     name="phone"
+                    placeholder="Phone number"
                 ></input>
-                <button type="submit">Submit</button>
+                <button type="submit">Submit</button>        
             </form>
         </div>
     );
 };
 
-export default GeneralInfo;
+export default GeneralInfoForm;

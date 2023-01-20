@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import GeneralInfo from "./components/GeneralInfo";
-import Education from "./components/Education";
-import PracticalExp from "./components/PracticalExp";
-//import uniqid from "uniqid";
+import GeneralInfoForm from "./components/GeneralInfoForm";
+import GeneralInfoText from "./components/GeneralInfoText";
+import EducationForm from "./components/EducationForm";
+import PracticalExpForm from "./components/PracticalExpForm";
+import PracticalExpText from "./components/PracticalExpText";
+
+import uniqid from "uniqid";
 import "./App.css";
+import EducationText from "./components/EducationText";
 
 class App extends Component {
     constructor() {
@@ -14,21 +18,31 @@ class App extends Component {
                 lastName: "",
                 email: "",
                 phone: "",
+                edit: false,
             },
             education: {
                 schoolName: "",
                 course: "",
                 completionDate: "",
+                key: uniqid(),
+                edit: false,
             },
+
             practical: {
                 companyName: "",
                 position: "",
                 tasks: "",
                 startDate: "",
                 endDate: "",
+                edit: false,
             },
         };
     }
+    // onDuplicateClick = () => {
+    //     this.setState((prevState) => ({
+    //         ...prevState,
+    //     }));
+    // };
     handleGeneralChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -43,8 +57,53 @@ class App extends Component {
     };
     onSubmitGeneral = (e) => {
         e.preventDefault();
+        this.setState((prevState) => ({
+            ...prevState,
+            generalInfo: {
+                ...prevState.generalInfo,
+                edit: false,
+            },
+            education: {
+                ...prevState.education,
+                edit: false,
+            },
 
+            practical: {
+                ...prevState.practical,
+                edit: false,
+            },
+        }));
         console.log(this.state);
+    };
+    generalEdit = (e) => {
+        console.log("clicked edit");
+        this.setState((prevState) => ({
+            ...prevState,
+            generalInfo: {
+                ...prevState.generalInfo,
+                edit: true,
+            },
+        }));
+    };
+    educationEdit = (e) => {
+        console.log("clicked edit");
+        this.setState((prevState) => ({
+            ...prevState,
+            education: {
+                ...prevState.education,
+                edit: true,
+            },
+        }));
+    };
+    practicalEdit = (e) => {
+        console.log("clicked edit");
+        this.setState((prevState) => ({
+            ...prevState,
+            practical: {
+                ...prevState.practical,
+                edit: true,
+            },
+        }));
     };
     handleEducationChange = (e) => {
         const name = e.target.name;
@@ -58,6 +117,7 @@ class App extends Component {
             },
         }));
     };
+
     handlePracticalChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -71,41 +131,46 @@ class App extends Component {
         }));
     };
     render() {
-        const { firstName, lastName, email, phone } = this.state.generalInfo;
-        const { schoolName, course, completionDate } = this.state.education;
-        const { companyName, position, tasks, startDate, endDate } =
-            this.state.practical;
+        const { generalInfo, education, practical } = this.state;
         return (
             <div className="App">
                 <h1>Hello cv</h1>
-                <p>First name: {firstName}</p>
-                <p>Last name: {lastName}</p>
-                <p>email: {email}</p>
-                <p>Phone: {phone}</p>
-                <GeneralInfo
-                    firstName={firstName}
-                    lastName={lastName}
-                    email={email}
-                    phone={phone}
-                    handleGeneralChange={this.handleGeneralChange}
-                    onSubmitGeneral={this.onSubmitGeneral}
-                />
-                <Education
-                    schoolName={schoolName}
-                    course={course}
-                    completionDate={completionDate}
-                    handleEducationChange={this.handleEducationChange}
-                    onSubmitGeneral={this.onSubmitGeneral}
-                />
-                <PracticalExp
-                    companyName={companyName}
-                    position={position}
-                    tasks={tasks}
-                    startDate={startDate}
-                    endDate={endDate}
-                    handlePracticalChange={this.handlePracticalChange}
-                    onSubmitGeneral={this.onSubmitGeneral}
-                />
+                {generalInfo.edit === true ? (
+                    <GeneralInfoForm
+                        generalInfo={generalInfo}
+                        handleGeneralChange={this.handleGeneralChange}
+                        onSubmitGeneral={this.onSubmitGeneral}
+                    />
+                ) : (
+                    <GeneralInfoText
+                        generalInfo={generalInfo}
+                        generalEdit={this.generalEdit}
+                    />
+                )}
+                {education.edit === true ? (
+                    <EducationForm
+                        education={education}
+                        handleEducationChange={this.handleEducationChange}
+                        onSubmitGeneral={this.onSubmitGeneral}
+                    />
+                ) : (
+                    <EducationText
+                        education={education}
+                        educationEdit={this.educationEdit}
+                    />
+                )}
+                {practical.edit === true ? (
+                    <PracticalExpForm
+                        practical={practical}
+                        handlePracticalChange={this.handlePracticalChange}
+                        onSubmitGeneral={this.onSubmitGeneral}
+                    />
+                ) : (
+                    <PracticalExpText
+                        practical={practical}
+                        practicalEdit={this.practicalEdit}
+                    />
+                )}
             </div>
         );
     }
