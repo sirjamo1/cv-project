@@ -16,6 +16,8 @@ const GeneralInfo = (props) => {
             <form
                 id="general-info-form"
                 onSubmit={(e) => {
+
+                    e.preventDefault();
                     onSubmitGeneral(e);
                 }}
             >
@@ -25,7 +27,7 @@ const GeneralInfo = (props) => {
                         handleGeneralChange(e);
                     }}
                     type="text"
-                    value={firstName || ""}
+                    value={firstName}
                     id="firstNameInput"
                     name="firstName"
                 ></input>
@@ -35,7 +37,7 @@ const GeneralInfo = (props) => {
                         handleGeneralChange(e);
                     }}
                     type="text"
-                    value={lastName || ""}
+                    value={lastName}
                     id="lastNameInput"
                     name="lastName"
                 ></input>
@@ -45,7 +47,7 @@ const GeneralInfo = (props) => {
                         handleGeneralChange(e);
                     }}
                     type="email"
-                    value={email || ""}
+                    value={email}
                     id="emailInput"
                     name="email"
                 ></input>
@@ -55,7 +57,7 @@ const GeneralInfo = (props) => {
                         handleGeneralChange(e);
                     }}
                     type="number"
-                    value={phone || ""}
+                    value={phone}
                     id="phoneInput"
                     name="phone"
                 ></input>

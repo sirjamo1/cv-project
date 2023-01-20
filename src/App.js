@@ -9,34 +9,72 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
+            generalInfo: {
+                firstName: "",
+                lastName: "",
+                email: "",
+                phone: "",
+            },
+            education: {
+                schoolName: "",
+                course: "",
+                completionDate: "",
+            },
+            practical: {
+                companyName: "",
+                position: "",
+                tasks: "",
+                startDate: "",
+                endDate: "",
+            },
         };
     }
     handleGeneralChange = (e) => {
-    //  e.preventDefault();
-    const name = e.target.name;
-    const value = e.target.value
-
-     console.log(e.target.value)
-        this.setState( prevState => ({...prevState, [name]: value})
-        
-        );
+        const name = e.target.name;
+        const value = e.target.value;
+        console.log(e.target.value);
+        this.setState((prevState) => ({
+            ...prevState,
+            generalInfo: {
+                ...prevState.generalInfo,
+                [name]: value,
+            },
+        }));
     };
     onSubmitGeneral = (e) => {
         e.preventDefault();
-    
-        console.log(this.state)
+
+        console.log(this.state);
+    };
+    handleEducationChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        console.log(e.target.value);
+        this.setState((prevState) => ({
+            ...prevState,
+            education: {
+                ...prevState.education,
+                [name]: value,
+            },
+        }));
+    };
+    handlePracticalChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        console.log(e.target.value);
+        this.setState((prevState) => ({
+            ...prevState,
+            practical: {
+                ...prevState.practical,
+                [name]: value,
+            },
+        }));
     };
     render() {
-        const {
-            firstName,
-            lastName,
-            email,
-            phone,
-        } = this.state;
+        const { firstName, lastName, email, phone } = this.state.generalInfo;
+        const { schoolName, course, completionDate } = this.state.education;
+        const { companyName, position, tasks, startDate, endDate } =
+            this.state.practical;
         return (
             <div className="App">
                 <h1>Hello cv</h1>
@@ -52,8 +90,22 @@ class App extends Component {
                     handleGeneralChange={this.handleGeneralChange}
                     onSubmitGeneral={this.onSubmitGeneral}
                 />
-                <Education />
-                <PracticalExp />
+                <Education
+                    schoolName={schoolName}
+                    course={course}
+                    completionDate={completionDate}
+                    handleEducationChange={this.handleEducationChange}
+                    onSubmitGeneral={this.onSubmitGeneral}
+                />
+                <PracticalExp
+                    companyName={companyName}
+                    position={position}
+                    tasks={tasks}
+                    startDate={startDate}
+                    endDate={endDate}
+                    handlePracticalChange={this.handlePracticalChange}
+                    onSubmitGeneral={this.onSubmitGeneral}
+                />
             </div>
         );
     }
