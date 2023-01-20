@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import GeneralInfoForm from "./components/GeneralInfoForm";
-import GeneralInfoText from "./components/GeneralInfoText";
-import EducationForm from "./components/EducationForm";
-import PracticalExpForm from "./components/PracticalExpForm";
-import PracticalExpText from "./components/PracticalExpText";
+import GeneralInfo from "./components/generalInfo/GeneralInfo";
+import Education from "./components/education/Education";
+import Practical from "./components/practicalExp/PracticalExp";
 
 import uniqid from "uniqid";
 import "./App.css";
-import EducationText from "./components/EducationText";
 
 class App extends Component {
     constructor() {
@@ -43,134 +40,64 @@ class App extends Component {
     //         ...prevState,
     //     }));
     // };
-    handleGeneralChange = (e) => {
+    handleFormChange = (e, category) => {
         const name = e.target.name;
         const value = e.target.value;
         console.log(e.target.value);
         this.setState((prevState) => ({
             ...prevState,
-            generalInfo: {
-                ...prevState.generalInfo,
+            [category]: {
+                ...prevState[category],
                 [name]: value,
             },
         }));
     };
-    onSubmitGeneral = (e) => {
+    onFormSubmit = (e, category) => {
         e.preventDefault();
         this.setState((prevState) => ({
             ...prevState,
-            generalInfo: {
-                ...prevState.generalInfo,
-                edit: false,
-            },
-            education: {
-                ...prevState.education,
-                edit: false,
-            },
-
-            practical: {
-                ...prevState.practical,
+            [category]: {
+                ...prevState[category],
                 edit: false,
             },
         }));
         console.log(this.state);
     };
-    generalEdit = (e) => {
+    onEditClick = (e, category) => {
         console.log("clicked edit");
         this.setState((prevState) => ({
             ...prevState,
-            generalInfo: {
-                ...prevState.generalInfo,
+            [category]: {
+                ...prevState[category],
                 edit: true,
-            },
-        }));
-    };
-    educationEdit = (e) => {
-        console.log("clicked edit");
-        this.setState((prevState) => ({
-            ...prevState,
-            education: {
-                ...prevState.education,
-                edit: true,
-            },
-        }));
-    };
-    practicalEdit = (e) => {
-        console.log("clicked edit");
-        this.setState((prevState) => ({
-            ...prevState,
-            practical: {
-                ...prevState.practical,
-                edit: true,
-            },
-        }));
-    };
-    handleEducationChange = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-        console.log(e.target.value);
-        this.setState((prevState) => ({
-            ...prevState,
-            education: {
-                ...prevState.education,
-                [name]: value,
             },
         }));
     };
 
-    handlePracticalChange = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-        console.log(e.target.value);
-        this.setState((prevState) => ({
-            ...prevState,
-            practical: {
-                ...prevState.practical,
-                [name]: value,
-            },
-        }));
-    };
     render() {
         const { generalInfo, education, practical } = this.state;
         return (
             <div className="App">
                 <h1>Hello cv</h1>
-                {generalInfo.edit === true ? (
-                    <GeneralInfoForm
-                        generalInfo={generalInfo}
-                        handleGeneralChange={this.handleGeneralChange}
-                        onSubmitGeneral={this.onSubmitGeneral}
-                    />
-                ) : (
-                    <GeneralInfoText
-                        generalInfo={generalInfo}
-                        generalEdit={this.generalEdit}
-                    />
-                )}
-                {education.edit === true ? (
-                    <EducationForm
-                        education={education}
-                        handleEducationChange={this.handleEducationChange}
-                        onSubmitGeneral={this.onSubmitGeneral}
-                    />
-                ) : (
-                    <EducationText
-                        education={education}
-                        educationEdit={this.educationEdit}
-                    />
-                )}
-                {practical.edit === true ? (
-                    <PracticalExpForm
-                        practical={practical}
-                        handlePracticalChange={this.handlePracticalChange}
-                        onSubmitGeneral={this.onSubmitGeneral}
-                    />
-                ) : (
-                    <PracticalExpText
-                        practical={practical}
-                        practicalEdit={this.practicalEdit}
-                    />
-                )}
+                <p>first name : {generalInfo.firstName}</p>
+                <GeneralInfo
+                    generalInfo={generalInfo}
+                    handleFormChange={this.handleFormChange}
+                    onFormSubmit={this.onFormSubmit}
+                    onEditClick={this.onEditClick}
+                />
+                <Education
+                    education={education}
+                    handleFormChange={this.handleFormChange}
+                    onFormSubmit={this.onFormSubmit}
+                    onEditClick={this.onEditClick}
+                />
+                <Practical
+                    practical={practical}
+                    handleFormChange={this.handleFormChange}
+                    onFormSubmit={this.onFormSubmit}
+                    onEditClick={this.onEditClick}
+                />
             </div>
         );
     }

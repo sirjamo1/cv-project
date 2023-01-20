@@ -52,23 +52,4 @@
 
     border: red solid 1px;
 }
-#cv-container {
- background-color: rgb(182, 202, 202);
- width: 800px;
- height: 1600px;
- display: flex;
- flex-direction: column;
- align-items: center;
-}
-#full-name {
 
-}
-#cv-contact-container {
-border: 1px solid red;
-}
-#cv-education-container {
-border: 1px solid red;
-}
-#cv-practical-container {
- border: 1px solid red;
-}
