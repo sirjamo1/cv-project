@@ -3,7 +3,7 @@ import GeneralInfoForm from "./GeneralInfoForm";
 import GeneralInfoText from "./GeneralInfoText";
 
 const GeneralInfo = (props) => {
-    const { generalInfo, onFormSubmit, handleFormChange, onEditClick } = props;
+    const { generalInfo, onFormSubmit, handleFormChange, onGeneralEditClick } = props;
 
     return (
         <div>
@@ -16,7 +16,7 @@ const GeneralInfo = (props) => {
             ) : (
                 <GeneralInfoText
                     generalInfo={generalInfo}
-                    onEditClick={onEditClick}
+                    onGeneralEditClick={onGeneralEditClick}
                 />
             )}
         </div>

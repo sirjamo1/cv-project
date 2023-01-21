@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import GeneralInfo from "./components/generalInfo/GeneralInfo";
 import Education from "./components/education/Education";
 import Practical from "./components/practicalExp/PracticalExp";
-
 import uniqid from "uniqid";
 import "./App.css";
 
@@ -17,29 +16,38 @@ class App extends Component {
                 phone: "",
                 edit: false,
             },
-            education: {
-                schoolName: "",
-                course: "",
-                completionDate: "",
-                key: uniqid(),
-                edit: false,
-            },
+            education: [
+                {
+                    schoolName: "one",
+                    course: "",
+                    completionDate: "",
+                    key: uniqid(),
+                    edit: false,
+                },
+                {
+                    schoolName: "two",
+                    course: "",
+                    completionDate: "",
+                    key: uniqid(),
+                    edit: false,
+                },
+            ],
 
-            practical: {
-                companyName: "",
-                position: "",
-                tasks: "",
-                startDate: "",
-                endDate: "",
-                edit: false,
-            },
+            practical: [
+                {
+                    companyName: "",
+                    position: "",
+                    tasks: "",
+                    startDate: "",
+                    endDate: "",
+                    key: uniqid(),
+                    edit: false,
+                },
+            ],
         };
+        this.onEditClick = this.onEditClick.bind(this);
     }
-    // onDuplicateClick = () => {
-    //     this.setState((prevState) => ({
-    //         ...prevState,
-    //     }));
-    // };
+
     handleFormChange = (e, category) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -52,26 +60,34 @@ class App extends Component {
             },
         }));
     };
-    onFormSubmit = (e, category) => {
+    onFormSubmit = (e, category, index) => {
         e.preventDefault();
-        this.setState((prevState) => ({
-            ...prevState,
-            [category]: {
-                ...prevState[category],
-                edit: false,
-            },
-        }));
+        console.log(category);
+        if (category === "generalInfo") {
+            this.onGeneralEditClick(category);
+        } else {
+            this.onEditClick(category, index);
+        }
         console.log(this.state);
     };
-    onEditClick = (e, category) => {
-        console.log("clicked edit");
-        this.setState((prevState) => ({
-            ...prevState,
-            [category]: {
-                ...prevState[category],
-                edit: true,
-            },
-        }));
+    onGeneralEditClick = (category) => {
+        let stateCopy = { ...this.state };
+        let item = { ...stateCopy[category] };
+        item.edit = !item.edit;
+        stateCopy[category] = item;
+        this.setState(stateCopy);
+    };
+    onEditClick = (category, index) => {
+        let stateCopy = { ...this.state };
+        let items = [...stateCopy[category]];
+        let item = { ...items[index] };
+        item.edit = !item.edit;
+        items[index] = item;
+        stateCopy[category] = items;
+        console.log(stateCopy);
+        this.setState(stateCopy);
+
+        console.log(this.state, "after edit");
     };
 
     render() {
@@ -84,7 +100,7 @@ class App extends Component {
                     generalInfo={generalInfo}
                     handleFormChange={this.handleFormChange}
                     onFormSubmit={this.onFormSubmit}
-                    onEditClick={this.onEditClick}
+                    onGeneralEditClick={this.onGeneralEditClick}
                 />
                 <Education
                     education={education}

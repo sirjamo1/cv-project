@@ -1,20 +1,17 @@
 import React from "react";
 
 const EducationForm = (props) => {
- // this.state = {input}
-    const { education, handleFormChange, onFormSubmit } = props;
+    const { education, handleFormChange, onFormSubmit, i } = props;
     const { schoolName, course, completionDate, key } = education;
-    console.log(key);
     return (
         <div id="education-container">
             <h3>Education</h3>
-
             <form
-                id={key}
+                key={key}
                 className="education-form"
                 onSubmit={(e) => {
                     e.preventDefault();
-                    onFormSubmit(e, "education");
+                    onFormSubmit(e, "education", i);
                 }}
             >
                 <label>
@@ -25,7 +22,6 @@ const EducationForm = (props) => {
                         }}
                         type="text"
                         value={schoolName}
-                        id="schoolNameInput"
                         name="schoolName"
                         placeholder="School Name"
                     ></input>
@@ -38,7 +34,6 @@ const EducationForm = (props) => {
                         }}
                         type="text"
                         value={course}
-                        id="courseInput"
                         name="course"
                         placeholder="Course"
                     ></input>
@@ -51,7 +46,6 @@ const EducationForm = (props) => {
                         }}
                         type="date"
                         value={completionDate}
-                        id="completionDateInput"
                         name="completionDate"
                     ></input>
                 </label>
@@ -63,3 +57,58 @@ const EducationForm = (props) => {
 };
 
 export default EducationForm;
+
+
+
+// {
+//     education.map((ed, i) => {
+//         return (
+//             <form
+//                 key={ed.key}
+//                 className="education-form"
+//                 onSubmit={(e) => {
+//                     e.preventDefault();
+//                     onFormSubmit(e, "education", i);
+//                 }}
+//             >
+//                 <label>
+//                     School Name
+//                     <input
+//                         onChange={(e) => {
+//                             handleFormChange(e, "education", i);
+//                         }}
+//                         type="text"
+//                         value={ed.schoolName}
+//                         name="schoolName"
+//                         placeholder="School Name"
+//                     ></input>
+//                 </label>
+//                 <label>
+//                     Course
+//                     <input
+//                         onChange={(e) => {
+//                             handleFormChange(e, "education", i);
+//                         }}
+//                         type="text"
+//                         value={ed.course}
+//                         name="course"
+//                         placeholder="Course"
+//                     ></input>
+//                 </label>
+//                 <label>
+//                     Completion Date
+//                     <input
+//                         onChange={(e) => {
+//                             handleFormChange(e, "education", i);
+//                         }}
+//                         type="date"
+//                         value={ed.completionDate}
+//                         name="completionDate"
+//                     ></input>
+//                 </label>
+//                 <button type="submit">Submit</button>
+//                 <button>Add Another</button>
+//             </form>
+//         );
+//     });
+// }
