@@ -1,7 +1,7 @@
 import React from "react";
 
 const GeneralInfoText = (props) => {
-    const { generalInfo, onGeneralEditClick } = props;
+    const { generalInfo, onEditClick } = props;
     const { firstName, lastName, email, phone, edit } = generalInfo;
 
     return (
@@ -12,7 +12,7 @@ const GeneralInfoText = (props) => {
             </p>
             <p>email : {email ? email : "john_doe@example.com"}</p>
             <p>Phone : {phone ? phone : "0404 040 404"}</p>
-            <button onClick={() => onGeneralEditClick("generalInfo")}>edit</button>
+            <button onClick={() => onEditClick("generalInfo")}>edit</button>
         </div>
     );
 };

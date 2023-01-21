@@ -5,7 +5,11 @@ const PracticalExpText = (props) => {
     const { companyName, position, tasks, startDate, endDate } = practical;
     return (
         <div id="general-info-container">
-            <h3>Practical text</h3>
+            <p>{companyName ? companyName : "Google"}</p>
+            <p>{position ? position : "CEO"}</p>
+            <p>{tasks ? tasks : "tasks need to be listed"}</p>
+            <p>{startDate ? startDate : "year-month-day"}</p>
+            <p>{endDate ? endDate : "year-month-day"}</p>
             <button onClick={() => onEditClick("practical", i)}>edit</button>
         </div>
     );

@@ -47,47 +47,29 @@ class App extends Component {
         };
         this.onEditClick = this.onEditClick.bind(this);
     }
-
-    handleFormChange = (e, category) => {
+    handleFormChange = (e, category, index) => {
         const name = e.target.name;
         const value = e.target.value;
-        console.log(e.target.value);
-        this.setState((prevState) => ({
-            ...prevState,
-            [category]: {
-                ...prevState[category],
-                [name]: value,
-            },
-        }));
+        let stateCopy = { ...this.state };
+        !isNaN(index)
+            ? (stateCopy[category][index][name] = value)
+            : (stateCopy[category][name] = value);
+        this.setState(stateCopy);
     };
+
     onFormSubmit = (e, category, index) => {
         e.preventDefault();
-        console.log(category);
-        if (category === "generalInfo") {
-            this.onGeneralEditClick(category);
-        } else {
-            this.onEditClick(category, index);
-        }
+        this.onEditClick(category, index);
         console.log(this.state);
     };
-    onGeneralEditClick = (category) => {
-        let stateCopy = { ...this.state };
-        let item = { ...stateCopy[category] };
-        item.edit = !item.edit;
-        stateCopy[category] = item;
-        this.setState(stateCopy);
-    };
+
     onEditClick = (category, index) => {
         let stateCopy = { ...this.state };
-        let items = [...stateCopy[category]];
-        let item = { ...items[index] };
-        item.edit = !item.edit;
-        items[index] = item;
-        stateCopy[category] = items;
-        console.log(stateCopy);
+        !isNaN(index)
+            ? (stateCopy[category][index].edit =
+                  !stateCopy[category][index].edit)
+            : (stateCopy[category].edit = !stateCopy[category].edit);
         this.setState(stateCopy);
-
-        console.log(this.state, "after edit");
     };
 
     render() {
@@ -100,7 +82,7 @@ class App extends Component {
                     generalInfo={generalInfo}
                     handleFormChange={this.handleFormChange}
                     onFormSubmit={this.onFormSubmit}
-                    onGeneralEditClick={this.onGeneralEditClick}
+                    onEditClick={this.onEditClick}
                 />
                 <Education
                     education={education}

@@ -1,7 +1,7 @@
 import React from "react";
 
 const PracticalExpForm = (props) => {
-    const { practical, handleFormChange, onFormSubmit } = props;
+    const { practical, handleFormChange, onFormSubmit, i } = props;
     const { companyName, position, tasks, startDate, endDate } = practical;
     return (
         <div id="practical-container">
@@ -10,14 +10,14 @@ const PracticalExpForm = (props) => {
                 id="practical-form"
                 onSubmit={(e) => {
                     e.preventDefault();
-                    onFormSubmit(e, "practical");
+                    onFormSubmit(e, "practical", i);
                 }}
             >
                 <label>
                     Company Name
                     <input
                         onChange={(e) => {
-                            handleFormChange(e, "practical");
+                            handleFormChange(e, "practical", i);
                         }}
                         type="text"
                         value={companyName}
@@ -30,7 +30,7 @@ const PracticalExpForm = (props) => {
                     Position
                     <input
                         onChange={(e) => {
-                            handleFormChange(e, "practical");
+                            handleFormChange(e, "practical", i);
                         }}
                         type="text"
                         value={position}
@@ -43,7 +43,7 @@ const PracticalExpForm = (props) => {
                     Tasks
                     <input
                         onChange={(e) => {
-                            handleFormChange(e, "practical");
+                            handleFormChange(e, "practical", i);
                         }}
                         type="text"
                         value={tasks}
@@ -56,7 +56,7 @@ const PracticalExpForm = (props) => {
                     Start Date
                     <input
                         onChange={(e) => {
-                            handleFormChange(e, "practical");
+                            handleFormChange(e, "practical", i);
                         }}
                         type="date"
                         value={startDate}
@@ -68,7 +68,7 @@ const PracticalExpForm = (props) => {
                     End Date
                     <input
                         onChange={(e) => {
-                            handleFormChange(e, "practical");
+                            handleFormChange(e, "practical", i);
                         }}
                         type="date"
                         value={endDate}

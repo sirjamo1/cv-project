@@ -10,7 +10,6 @@ const Education = (props) => {
             <h3>Education</h3>
             {education.map((education, i) => {
                 if (education.edit === true) {
-                    console.log(education.edit);
                     return (
                         <EducationForm
                             key={education.key}

@@ -1,7 +1,7 @@
 import React from "react";
 
 const GeneralInfoForm = (props) => {
-    const { generalInfo, onFormSubmit, handleFormChange } = props;
+    const { generalInfo, onFormSubmit, handleFormChange, i } = props;
     const { firstName, lastName, email, phone, edit } = generalInfo;
 
     return (
@@ -11,14 +11,14 @@ const GeneralInfoForm = (props) => {
                 id="general-info-form"
                 onSubmit={(e) => {
                     e.preventDefault();
-                    onFormSubmit(e, "generalInfo");
+                    onFormSubmit(e, "generalInfo", i);
                 }}
             >
                 <label>
                     First name
                     <input
                         onChange={(e) => {
-                            handleFormChange(e, "generalInfo");
+                            handleFormChange(e, "generalInfo", i);
                         }}
                         type="text"
                         value={firstName}
@@ -31,7 +31,7 @@ const GeneralInfoForm = (props) => {
                     Family name
                     <input
                         onChange={(e) => {
-                            handleFormChange(e, "generalInfo");
+                            handleFormChange(e, "generalInfo", i);
                         }}
                         type="text"
                         value={lastName}
@@ -44,7 +44,7 @@ const GeneralInfoForm = (props) => {
                     E-mail
                     <input
                         onChange={(e) => {
-                            handleFormChange(e, "generalInfo");
+                            handleFormChange(e, "generalInfo", i);
                         }}
                         type="email"
                         value={email}
@@ -57,7 +57,7 @@ const GeneralInfoForm = (props) => {
                     Phone
                     <input
                         onChange={(e) => {
-                            handleFormChange(e, "generalInfo");
+                            handleFormChange(e, "generalInfo", i);
                         }}
                         type="number"
                         value={phone}
