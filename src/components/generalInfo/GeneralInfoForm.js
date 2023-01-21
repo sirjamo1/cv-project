@@ -5,10 +5,8 @@ const GeneralInfoForm = (props) => {
     const { firstName, lastName, email, phone, edit } = generalInfo;
 
     return (
-        <div id="general-info-container">
-            <h3>GeneralInfo</h3>
+        <div id="general-info-form">
             <form
-                id="general-info-form"
                 onSubmit={(e) => {
                     e.preventDefault();
                     onFormSubmit(e, "generalInfo", i);

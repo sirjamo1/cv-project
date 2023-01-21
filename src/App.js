@@ -35,7 +35,16 @@ class App extends Component {
 
             practical: [
                 {
-                    companyName: "",
+                    companyName: "ddd",
+                    position: "",
+                    tasks: "",
+                    startDate: "",
+                    endDate: "",
+                    key: uniqid(),
+                    edit: false,
+                },
+                {
+                    companyName: "ggg",
                     position: "",
                     tasks: "",
                     startDate: "",
@@ -45,8 +54,9 @@ class App extends Component {
                 },
             ],
         };
-        this.onEditClick = this.onEditClick.bind(this);
+        // this.onEditClick = this.onEditClick.bind(this);
     }
+
     handleFormChange = (e, category, index) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -71,7 +81,33 @@ class App extends Component {
             : (stateCopy[category].edit = !stateCopy[category].edit);
         this.setState(stateCopy);
     };
+    onDeleteClick = (category, index) => {
+        let stateCopy = { ...this.state };
+        stateCopy[category].splice(index, 1);
+        this.setState(stateCopy);
+    };
+    onDuplicateClick = (category, index) => {
+        const practical = {
+            companyName: "",
+            position: "",
+            tasks: "",
+            startDate: "",
+            endDate: "",
+            key: uniqid(),
+            edit: false,
+        };
+        const education = {
+            schoolName: "",
+            course: "",
+            completionDate: "",
+            key: uniqid(),
+            edit: false,
+        };
 
+        let stateCopy = { ...this.state };
+        stateCopy[category].splice(index, 0, category);
+        this.setState(stateCopy)
+    };
     render() {
         const { generalInfo, education, practical } = this.state;
         return (
@@ -89,12 +125,16 @@ class App extends Component {
                     handleFormChange={this.handleFormChange}
                     onFormSubmit={this.onFormSubmit}
                     onEditClick={this.onEditClick}
+                    onDeleteClick={this.onDeleteClick}
+                    onDuplicateClick={this.onDuplicateClick}
                 />
                 <Practical
                     practical={practical}
                     handleFormChange={this.handleFormChange}
                     onFormSubmit={this.onFormSubmit}
                     onEditClick={this.onEditClick}
+                    onDeleteClick={this.onDeleteClick}
+                    onDuplicateClick={this.onDuplicateClick}
                 />
             </div>
         );

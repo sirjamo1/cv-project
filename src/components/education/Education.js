@@ -4,9 +4,16 @@ import EducationForm from "./EducationForm";
 import EducationText from "./EducationText";
 
 const Education = (props) => {
-    const { education, handleFormChange, onFormSubmit, onEditClick } = props;
+    const {
+        education,
+        handleFormChange,
+        onFormSubmit,
+        onEditClick,
+        onDeleteClick,
+        onDuplicateClick,
+    } = props;
     return (
-        <div>
+        <div id="education-container">
             <h3>Education</h3>
             {education.map((education, i) => {
                 if (education.edit === true) {
@@ -26,6 +33,8 @@ const Education = (props) => {
                             i={i}
                             education={education}
                             onEditClick={onEditClick}
+                            onDeleteClick={onDeleteClick}
+                            onDuplicateClick={onDuplicateClick}
                         />
                     );
                 }

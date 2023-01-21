@@ -4,10 +4,8 @@ const PracticalExpForm = (props) => {
     const { practical, handleFormChange, onFormSubmit, i } = props;
     const { companyName, position, tasks, startDate, endDate } = practical;
     return (
-        <div id="practical-container">
-            <h3>Practical</h3>
+        <div className="practical-form">
             <form
-                id="practical-form"
                 onSubmit={(e) => {
                     e.preventDefault();
                     onFormSubmit(e, "practical", i);
@@ -21,7 +19,6 @@ const PracticalExpForm = (props) => {
                         }}
                         type="text"
                         value={companyName}
-                        id="companyNameInput"
                         name="companyName"
                         placeholder="Company Name"
                     ></input>
@@ -34,7 +31,6 @@ const PracticalExpForm = (props) => {
                         }}
                         type="text"
                         value={position}
-                        id="positionInput"
                         name="position"
                         placeholder="Position"
                     ></input>
@@ -47,7 +43,6 @@ const PracticalExpForm = (props) => {
                         }}
                         type="text"
                         value={tasks}
-                        id="tasksInput"
                         name="tasks"
                         placeholder="Tasks"
                     ></input>
@@ -60,7 +55,6 @@ const PracticalExpForm = (props) => {
                         }}
                         type="date"
                         value={startDate}
-                        id="startDateInput"
                         name="startDate"
                     ></input>
                 </label>
@@ -72,7 +66,6 @@ const PracticalExpForm = (props) => {
                         }}
                         type="date"
                         value={endDate}
-                        id="endDateInput"
                         name="endDate"
                     ></input>
                 </label>

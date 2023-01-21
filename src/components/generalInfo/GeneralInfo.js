@@ -6,7 +6,8 @@ const GeneralInfo = (props) => {
     const { generalInfo, onFormSubmit, handleFormChange, onEditClick } = props;
 
     return (
-        <div>
+        <div id="general-info-container">
+            <h3>GeneralInfo</h3>
             {generalInfo.edit === true ? (
                 <GeneralInfoForm
                     generalInfo={generalInfo}

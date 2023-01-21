@@ -5,14 +5,13 @@ const GeneralInfoText = (props) => {
     const { firstName, lastName, email, phone, edit } = generalInfo;
 
     return (
-        <div id="general-info-container">
-            <h3>GeneralInfo</h3>
+        <div id="general-info-text">
             <p>
                 {firstName ? firstName : "John"} {lastName ? lastName : "Doe"}
             </p>
             <p>email : {email ? email : "john_doe@example.com"}</p>
             <p>Phone : {phone ? phone : "0404 040 404"}</p>
-            <button onClick={() => onEditClick("generalInfo")}>edit</button>
+            <button onClick={() => onEditClick("generalInfo")}>Edit</button>
         </div>
     );
 };
