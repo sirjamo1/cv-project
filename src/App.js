@@ -6,6 +6,8 @@ import Practical from "./components/practicalExp/PracticalExp";
 import uniqid from "uniqid";
 import "./App.css";
 
+
+////NEED TO:  finish css, add list item to practical.tasks
 class App extends Component {
     constructor() {
         super();

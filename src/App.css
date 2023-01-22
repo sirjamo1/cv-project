@@ -91,13 +91,13 @@ input:focus {
 }
 
 /*👉************************************* SKILLS*********************👈*/
-#skills-container {
+.skills-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
-#skills-container > h3 {
+.skills-container > h3 {
     margin: 6px;
 }
 /*👉**************SKILLS TEXT **********************👈*/
@@ -159,14 +159,15 @@ input:focus {
     
 }
 /*👉**************************************EDUCATION*****************👈*/
-#education-container {
+.education-container {
 border-bottom: 1px solid rgb(81, 118, 100);
 display: flex;
 flex-direction: column;
 align-items: center;
 width: 100%;
+padding-bottom: 10px;
 }
-#education-container > h3 {
+.education-container > h3 {
 margin: 6px;
 }
 /*👉**********EDUCATION TEXT***************** 👈*/
@@ -179,14 +180,15 @@ width: 70%;
 }
 
 /*👉**************************************PRACTICAL*****************👈*/
-#practical-container {
+.practical-container {
 border-bottom: 1px solid rgb(81, 118, 100);
 display: flex;
 flex-direction: column;
 align-items: center;
 width: 100%;
+padding-bottom: 10px;
 }
-#practical-container > h3 {
+.practical-container > h3 {
 margin: 6px;
 }
 /*👉**********PRACTICAL TEXT***************** 👈*/
