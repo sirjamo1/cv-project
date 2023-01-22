@@ -70,7 +70,6 @@ const PracticalExpForm = (props) => {
                     ></input>
                 </label>
                 <button type="submit">Submit</button>
-                <button>Add Another</button>
             </form>
         </div>
     );

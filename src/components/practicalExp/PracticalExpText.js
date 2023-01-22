@@ -1,4 +1,5 @@
 import React from "react";
+import { MdEdit, MdPlaylistAdd, MdDeleteForever } from "react-icons/md";
 
 const PracticalExpText = (props) => {
     const { practical, onEditClick, onDeleteClick, onDuplicateClick, i } =
@@ -11,13 +12,17 @@ const PracticalExpText = (props) => {
             <p>{tasks ? tasks : "tasks need to be listed"}</p>
             <p>{startDate ? startDate : "year-month-day"}</p>
             <p>{endDate ? endDate : "year-month-day"}</p>
-            <button onClick={() => onEditClick("practical", i)}>Edit</button>
-            <button onClick={() => onDuplicateClick("practical", i)}>
-                Duplicate
-            </button>
-            <button onClick={() => onDeleteClick("practical", i)}>
-                Delete
-            </button>
+            <div className="text-button-container">
+                <button onClick={() => onEditClick("practical", i)}>
+                    <MdEdit size={20} />
+                </button>
+                <button onClick={() => onDuplicateClick("practical", i)}>
+                    <MdPlaylistAdd size={20} />
+                </button>
+                <button onClick={() => onDeleteClick("practical", i)}>
+                    <MdDeleteForever size={20} />
+                </button>
+            </div>
         </div>
     );
 };

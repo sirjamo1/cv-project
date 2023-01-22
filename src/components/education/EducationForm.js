@@ -1,11 +1,13 @@
 import React from "react";
 
+
 const EducationForm = (props) => {
     const { education, handleFormChange, onFormSubmit, i } = props;
     const { schoolName, course, completionDate, key } = education;
     return (
-        <div className="education-form" key={key}>
             <form
+                className="education-form"
+                key={key}
                 onSubmit={(e) => {
                     e.preventDefault();
                     onFormSubmit(e, "education", i);
@@ -48,7 +50,6 @@ const EducationForm = (props) => {
                 </label>
                 <button type="submit">Submit</button>
             </form>
-        </div>
     );
 };
 

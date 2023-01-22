@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import GeneralInfo from "./components/generalInfo/GeneralInfo";
+import Contact from "./components/contact/Contact";
+import Skills from "./components/skills/Skills";
 import Education from "./components/education/Education";
 import Practical from "./components/practicalExp/PracticalExp";
 import uniqid from "uniqid";
@@ -9,23 +10,25 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            generalInfo: {
+            contact: {
                 firstName: "",
                 lastName: "",
                 email: "",
                 phone: "",
                 edit: false,
             },
+            skills: [{ skill: "", key: uniqid(), edit: false }],
+
             education: [
                 {
-                    schoolName: "one",
+                    schoolName: "",
                     course: "",
                     completionDate: "",
                     key: uniqid(),
                     edit: false,
                 },
                 {
-                    schoolName: "two",
+                    schoolName: "",
                     course: "",
                     completionDate: "",
                     key: uniqid(),
@@ -35,7 +38,7 @@ class App extends Component {
 
             practical: [
                 {
-                    companyName: "ddd",
+                    companyName: "",
                     position: "",
                     tasks: "",
                     startDate: "",
@@ -44,7 +47,7 @@ class App extends Component {
                     edit: false,
                 },
                 {
-                    companyName: "ggg",
+                    companyName: "",
                     position: "",
                     tasks: "",
                     startDate: "",
@@ -85,8 +88,11 @@ class App extends Component {
         let stateCopy = { ...this.state };
         stateCopy[category].splice(index, 1);
         this.setState(stateCopy);
+        console.log(this.state.education.length)
     };
     onDuplicateClick = (category, index) => {
+        console.log(category);
+        const skills = { skill: "", key: uniqid(), edit: false };
         const practical = {
             companyName: "",
             position: "",
@@ -103,39 +109,62 @@ class App extends Component {
             key: uniqid(),
             edit: false,
         };
+        let newCategory = {};
+        if (category === "education") newCategory = education;
+        if (category === "practical") newCategory = practical;
+        if (category === "skills") newCategory = skills;
+        console.log(newCategory);
 
         let stateCopy = { ...this.state };
-        stateCopy[category].splice(index, 0, category);
-        this.setState(stateCopy)
+        stateCopy[category].splice(index, 0, newCategory);
+        this.setState(stateCopy);
     };
     render() {
-        const { generalInfo, education, practical } = this.state;
+        const { contact, skills, education, practical } = this.state;
         return (
             <div className="App">
-                <h1>Hello cv</h1>
-                <p>first name : {generalInfo.firstName}</p>
-                <GeneralInfo
-                    generalInfo={generalInfo}
-                    handleFormChange={this.handleFormChange}
-                    onFormSubmit={this.onFormSubmit}
-                    onEditClick={this.onEditClick}
-                />
-                <Education
-                    education={education}
-                    handleFormChange={this.handleFormChange}
-                    onFormSubmit={this.onFormSubmit}
-                    onEditClick={this.onEditClick}
-                    onDeleteClick={this.onDeleteClick}
-                    onDuplicateClick={this.onDuplicateClick}
-                />
-                <Practical
-                    practical={practical}
-                    handleFormChange={this.handleFormChange}
-                    onFormSubmit={this.onFormSubmit}
-                    onEditClick={this.onEditClick}
-                    onDeleteClick={this.onDeleteClick}
-                    onDuplicateClick={this.onDuplicateClick}
-                />
+                <div id="cv-container">
+                    <div id="cv-column-one">
+                        <Contact
+                            contact={contact}
+                            handleFormChange={this.handleFormChange}
+                            onFormSubmit={this.onFormSubmit}
+                            onEditClick={this.onEditClick}
+                        />
+                        <Skills
+                            skills={skills}
+                            handleFormChange={this.handleFormChange}
+                            onFormSubmit={this.onFormSubmit}
+                            onEditClick={this.onEditClick}
+                            onDeleteClick={this.onDeleteClick}
+                            onDuplicateClick={this.onDuplicateClick}
+                        />
+                    </div>
+                    <div id="cv-column-two">
+                        <div id="cv-header">
+                            <h1>
+                                {contact.firstName ? contact.firstName : "John"}{" "}
+                                {contact.lastName ? contact.lastName : "Doe"}
+                            </h1>
+                        </div>
+                        <Education
+                            education={education}
+                            handleFormChange={this.handleFormChange}
+                            onFormSubmit={this.onFormSubmit}
+                            onEditClick={this.onEditClick}
+                            onDeleteClick={this.onDeleteClick}
+                            onDuplicateClick={this.onDuplicateClick}
+                        />
+                        <Practical
+                            practical={practical}
+                            handleFormChange={this.handleFormChange}
+                            onFormSubmit={this.onFormSubmit}
+                            onEditClick={this.onEditClick}
+                            onDeleteClick={this.onDeleteClick}
+                            onDuplicateClick={this.onDuplicateClick}
+                        />
+                    </div>
+                </div>
             </div>
         );
     }

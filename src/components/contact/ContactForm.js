@@ -1,73 +1,69 @@
 import React from "react";
+import { MdOutlineMail, MdPhoneAndroid, MdPerson } from "react-icons/md";
 
-const GeneralInfoForm = (props) => {
-    const { generalInfo, onFormSubmit, handleFormChange, i } = props;
-    const { firstName, lastName, email, phone, edit } = generalInfo;
+const ContactForm = (props) => {
+    const { contact, onFormSubmit, handleFormChange, i } = props;
+    const { firstName, lastName, email, phone } = contact;
 
     return (
-        <div id="general-info-form">
-            <form
+
+            <form id="contact-form"
                 onSubmit={(e) => {
                     e.preventDefault();
-                    onFormSubmit(e, "generalInfo", i);
+                    onFormSubmit(e, "contact", i);
                 }}
             >
-                <label>
-                    First name
-                    <input
+                <div id="contact-form-first-and-last">
+                   <MdPerson /> <input
                         onChange={(e) => {
-                            handleFormChange(e, "generalInfo", i);
+                            handleFormChange(e, "contact", i);
                         }}
                         type="text"
                         value={firstName}
                         id="firstNameInput"
                         name="firstName"
-                        placeholder="First Name"
+                        placeholder={firstName ? firstName : "First name"}
                     ></input>
-                </label>
-                <label>
-                    Family name
                     <input
                         onChange={(e) => {
-                            handleFormChange(e, "generalInfo", i);
+                            handleFormChange(e, "contact", i);
                         }}
                         type="text"
                         value={lastName}
                         id="lastNameInput"
                         name="lastName"
-                        placeholder="Last Name"
+                        placeholder={lastName ? lastName : "Last Name"}
                     ></input>
-                </label>
-                <label>
-                    E-mail
+                </div>
+                <div>
+                    <MdOutlineMail />
                     <input
                         onChange={(e) => {
-                            handleFormChange(e, "generalInfo", i);
+                            handleFormChange(e, "contact", i);
                         }}
                         type="email"
                         value={email}
                         id="emailInput"
                         name="email"
-                        placeholder="email"
+                        placeholder={email ? email : "email"}
                     ></input>
-                </label>
-                <label>
-                    Phone
-                    <input
+                </div>
+                <div>
+                   <MdPhoneAndroid /> <input
                         onChange={(e) => {
-                            handleFormChange(e, "generalInfo", i);
+                            handleFormChange(e, "contact", i);
                         }}
                         type="number"
                         value={phone}
                         id="phoneInput"
                         name="phone"
-                        placeholder="Phone number"
+                        placeholder={phone ? phone : "Phone number"}
                     ></input>
-                </label>
+                </div>
+
                 <button type="submit">Submit</button>
             </form>
-        </div>
     );
 };
 
-export default GeneralInfoForm;
+export default ContactForm;

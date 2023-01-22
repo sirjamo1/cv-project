@@ -1,61 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+input:focus {
+    outline: none;
+    /*👉 border: none;👈*/
+}
+/*👉
+<palette>
+  <color name="Light Gray" hex="cacfd6" rgb(202, 207, 214) />
+  <color name="Azure X 11 Web Color" hex="d6e5e3" rgb(214,229,227) " />
+  <color name="Middle Blue Green" hex="9fd8cb" rgb(159, 216, 203) />
+  <color name="Hookers Green" hex="517664" rgb(81, 118, 100) />
+  <color name="Pine Tree" hex="2d3319" rgb(45, 51, 25) />
+</palette>👈*/
 .App {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(202, 207, 214);
+    height: 100vh;
+}
+#cv-container {
+    width: 80%;
+    background-color: rgb(214, 229, 227);
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin-top: 50px;
+}
+#cv-column-one {
+    background-color: rgb(159, 216, 203);
 }
 
-#general-info-container {
-    border: blue solid 1px;
-    width: 80%;
+/*👉****************************************CONTACT CONTAINER*************👈*/
+#contact-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 1px solid rgb(81, 118, 100);
 }
-#general-info-text {
+#contact-container > h3 {
+    margin: 6px;
+}
+#contact-container * svg {
+    min-width: 20px;
+}
+/*👉***************************CONTACT TEXT**************👈*/
+#contact-text {
     width: 100%;
 }
-#general-info-form {
-    color: blue;
+#contact-text > div {
+    display: flex;
+    margin: 6px;
+    border-bottom: 1px solid rgb(81, 118, 100);
+}
+#contact-text > div > p {
+    margin-left: 6px;
+}
+#contact-text > button {
+    margin-left: 85%;
+    margin-bottom: 4px;
+}
+
+/*👉****************************CONTACT FORM******************👈*/
+#contact-form {
+    width: 100%;
+}
+#contact-form > div {
+    display: flex;
+    margin: 6px;
+    border-bottom: 1px solid rgb(81, 118, 100);
+    align-items: flex-start;
+    max-width: 100%;
+}
+#contact-form > div > input {
+    background-color: rgb(159, 216, 203);
+    border: none;
+    margin-left: 6px;
+    width: 100%;
+    margin-bottom: 3px;
+}
+#contact-form-first-and-last > input {
+    width: 60%;
+}
+#contact-form > button {
+    margin-left: 75%;
+    margin-bottom: 4px;
+    height: 27px;
+}
+
+/*👉************************************* SKILLS*********************👈*/
+#skills-container {
     display: flex;
     flex-direction: column;
-    width: 50%;
     align-items: center;
-
-    border: red solid 1px;
+    width: 100%;
 }
+#skills-container > h3 {
+    margin: 6px;
+}
+/*👉**************SKILLS TEXT **********************👈*/
+.skills-text {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    margin: 6px;
+}
+.skills-text > div {
+    align-self: flex-end;
+}
+.skills-text > h4 {
+    padding-top: 10px;
+    margin-left: 6px;
+}
+/*👉****************SKILLS FORM************************ 👈*/
+
+.skills-form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 6px;
+}
+.skills-form > input {
+    width: 70%;
+    background-color: rgb(159, 216, 203);
+    border: none;
+    font-size: 1rem;
+    line-height: 35px;
+}
+.skills-form > button {
+    height: 23px;
+    margin: 6px;
+}
+
+/*👉/////////cv-column-two//////////👈*/
+#cv-column-two {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#cv-header {
+    font-size: 2rem;
+    background-color: rgb(45, 51, 25);
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#cv-column-two > div > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(156, 231, 194);
+    border-radius: 6px;
+    margin: 10px;
+    
+}
+/*👉**************************************EDUCATION*****************👈*/
 #education-container {
-    border: blue solid 1px;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+border-bottom: 1px solid rgb(81, 118, 100);
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
 }
-.education-form {
-    color: blue;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    align-items: center;
-
-    border: red solid 1px;
+#education-container > h3 {
+margin: 6px;
 }
+/*👉**********EDUCATION TEXT***************** 👈*/
 .education-text {
+width: 70%;
 }
+/*👉***********EDUCATION FORM***************** 👈*/
+.education-form {
+
+}
+
+/*👉**************************************PRACTICAL*****************👈*/
 #practical-container {
-    border: blue solid 1px;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+border-bottom: 1px solid rgb(81, 118, 100);
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+}
+#practical-container > h3 {
+margin: 6px;
+}
+/*👉**********PRACTICAL TEXT***************** 👈*/
+.practical-text {
+width: 70%;
+}
+/*👉***********PRACTICAL FORM***************** 👈*/
+.practical-form {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.text-button-container {
+}
+.text-button-container > button {
+    margin: 4px;
+}
+
+#practical-container {
+
 }
 .practical-form {
     color: blue;
     display: flex;
     flex-direction: column;
-    width: 50%;
     align-items: center;
-    border: red solid 1px;
 }
 .practical-text {
-
 }
