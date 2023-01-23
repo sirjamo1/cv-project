@@ -6,8 +6,7 @@ import Practical from "./components/practicalExp/PracticalExp";
 import uniqid from "uniqid";
 import "./App.css";
 
-
-////NEED TO:  finish css, add list item to practical.tasks
+////NEED TO:  finish css
 class App extends Component {
     constructor() {
         super();
@@ -20,7 +19,6 @@ class App extends Component {
                 edit: false,
             },
             skills: [{ skill: "", key: uniqid(), edit: false }],
-
             education: [
                 {
                     schoolName: "",
@@ -37,12 +35,14 @@ class App extends Component {
                     edit: false,
                 },
             ],
-
             practical: [
                 {
                     companyName: "",
                     position: "",
-                    tasks: "",
+                    tasks: [
+                        { task: "one", key: uniqid(), edit: false },
+                        { task: "task two", key: uniqid(), edit: false },
+                    ],
                     startDate: "",
                     endDate: "",
                     key: uniqid(),
@@ -51,7 +51,10 @@ class App extends Component {
                 {
                     companyName: "",
                     position: "",
-                    tasks: "",
+                    tasks: [
+                        { task: "one", key: uniqid(), edit: false },
+                        { task: "task two", key: uniqid(), edit: false },
+                    ],
                     startDate: "",
                     endDate: "",
                     key: uniqid(),
@@ -59,46 +62,58 @@ class App extends Component {
                 },
             ],
         };
-        // this.onEditClick = this.onEditClick.bind(this);
     }
 
-    handleFormChange = (e, category, index) => {
+    handleFormChange = (e, category, index, subCategory, subIndex) => {
         const name = e.target.name;
         const value = e.target.value;
         let stateCopy = { ...this.state };
-        !isNaN(index)
-            ? (stateCopy[category][index][name] = value)
-            : (stateCopy[category][name] = value);
+        if (!!subCategory) {
+            stateCopy[category][index][subCategory][subIndex][name] = value;
+        } else {
+            !isNaN(index)
+                ? (stateCopy[category][index][name] = value)
+                : (stateCopy[category][name] = value);
+        }
         this.setState(stateCopy);
     };
 
-    onFormSubmit = (e, category, index) => {
+    onFormSubmit = (e, category, index, subCategory, subIndex) => {
         e.preventDefault();
-        this.onEditClick(category, index);
-        console.log(this.state);
+        this.onEditClick(category, index, subCategory, subIndex);
     };
 
-    onEditClick = (category, index) => {
+    onEditClick = (category, index, subCategory, subIndex) => {
         let stateCopy = { ...this.state };
-        !isNaN(index)
-            ? (stateCopy[category][index].edit =
-                  !stateCopy[category][index].edit)
-            : (stateCopy[category].edit = !stateCopy[category].edit);
+        if (!!subCategory) {
+            stateCopy[category][index][subCategory][subIndex].edit =
+                !stateCopy[category][index][subCategory][subIndex].edit;
+        } else {
+            !isNaN(index)
+                ? (stateCopy[category][index].edit =
+                      !stateCopy[category][index].edit)
+                : (stateCopy[category].edit = !stateCopy[category].edit);
+        }
         this.setState(stateCopy);
     };
-    onDeleteClick = (category, index) => {
+    onDeleteClick = (category, index, subCategory, subIndex) => {
         let stateCopy = { ...this.state };
-        stateCopy[category].splice(index, 1);
+        if (!!subCategory) {
+            stateCopy[category][index][subCategory].splice(subIndex, 1)
+        } else {
+            stateCopy[category].splice(index, 1);
+        }
         this.setState(stateCopy);
-        console.log(this.state.education.length)
     };
-    onDuplicateClick = (category, index) => {
-        console.log(category);
+    onDuplicateClick = (category, index, subCategory, subIndex) => {
         const skills = { skill: "", key: uniqid(), edit: false };
         const practical = {
             companyName: "",
             position: "",
-            tasks: "",
+            tasks: [
+                { task: "", key: uniqid(), edit: false },
+                { task: "", key: uniqid(), edit: false },
+            ],
             startDate: "",
             endDate: "",
             key: uniqid(),
@@ -111,14 +126,23 @@ class App extends Component {
             key: uniqid(),
             edit: false,
         };
+        const task = { task: "", key: uniqid(), edit: false };
+        let stateCopy = { ...this.state };
         let newCategory = {};
+        let newSubCategory = {};
         if (category === "education") newCategory = education;
         if (category === "practical") newCategory = practical;
         if (category === "skills") newCategory = skills;
-        console.log(newCategory);
-
-        let stateCopy = { ...this.state };
-        stateCopy[category].splice(index, 0, newCategory);
+        if (!!subCategory) {
+            newSubCategory = task;
+            stateCopy[category][index][subCategory].splice(
+                subIndex + 1,
+                0,
+                newSubCategory
+            );
+        } else {
+            stateCopy[category].splice(index, 0, newCategory);
+        }
         this.setState(stateCopy);
     };
     render() {

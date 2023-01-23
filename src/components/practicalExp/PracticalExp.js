@@ -36,6 +36,8 @@ const Practical = (props) => {
                                 onEditClick={onEditClick}
                                 onDeleteClick={onDeleteClick}
                                 onDuplicateClick={onDuplicateClick}
+                                handleFormChange={handleFormChange}
+                                onFormSubmit={onFormSubmit}
                             />
                         );
                     }
@@ -44,12 +46,13 @@ const Practical = (props) => {
         );
     } else {
         return (
-        <div className="practical-container">
-            <h3>Practical</h3>
-            <button onClick={() => onDuplicateClick("practical", 0)}>
-                <MdPlaylistAdd size={20} />
-            </button>
-        </div>);
+            <div className="practical-container">
+                <h3>Practical</h3>
+                <button onClick={() => onDuplicateClick("practical", 0)}>
+                    <MdPlaylistAdd size={20} />
+                </button>
+            </div>
+        );
     }
 };
 

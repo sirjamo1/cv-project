@@ -195,6 +195,15 @@ margin: 6px;
 .practical-text {
 width: 70%;
 }
+.tasks-container {
+
+}
+.tasks-container button {
+    margin-right: 5px;
+}
+.tasks-container li {
+    
+}
 /*👉***********PRACTICAL FORM***************** 👈*/
 .practical-form {
 

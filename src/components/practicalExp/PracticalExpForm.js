@@ -3,11 +3,11 @@ import React from "react";
 const PracticalExpForm = (props) => {
     const { practical, handleFormChange, onFormSubmit, i } = props;
     const { companyName, position, tasks, startDate, endDate } = practical;
+
     return (
         <div className="practical-form">
             <form
                 onSubmit={(e) => {
-                    e.preventDefault();
                     onFormSubmit(e, "practical", i);
                 }}
             >
@@ -33,18 +33,6 @@ const PracticalExpForm = (props) => {
                         value={position}
                         name="position"
                         placeholder="Position"
-                    ></input>
-                </label>
-                <label>
-                    Tasks
-                    <input
-                        onChange={(e) => {
-                            handleFormChange(e, "practical", i);
-                        }}
-                        type="text"
-                        value={tasks}
-                        name="tasks"
-                        placeholder="Tasks"
                     ></input>
                 </label>
                 <label>
