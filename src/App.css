@@ -19,7 +19,7 @@ input:focus {
     flex-direction: column;
     align-items: center;
     background-color: rgb(202, 207, 214);
-    height: 100vh;
+    height: 100%;
 }
 #cv-container {
     width: 80%;
@@ -115,6 +115,9 @@ input:focus {
     padding-top: 10px;
     margin-left: 6px;
 }
+.skill-text-button-container > button {
+    margin: 4px;
+}
 /*👉****************SKILLS FORM************************ 👈*/
 
 .skills-form {
@@ -137,7 +140,7 @@ input:focus {
 
 /*👉/////////cv-column-two//////////👈*/
 #cv-column-two {
-  display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -152,90 +155,101 @@ input:focus {
 #cv-column-two > div > div {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     background-color: rgb(156, 231, 194);
     border-radius: 6px;
     margin: 10px;
-    
+    width: 70%;
+    padding: 6px;
+    position: relative;
+    padding-bottom: 30px;
+}
+.text-button-container {
+position: absolute;
+right: 5px;
+bottom: 5px;
+}
+.text-button-container > button {
+    margin: 4px;
 }
 /*👉**************************************EDUCATION*****************👈*/
 .education-container {
-border-bottom: 1px solid rgb(81, 118, 100);
-display: flex;
-flex-direction: column;
-align-items: center;
-width: 100%;
-padding-bottom: 10px;
+    border-bottom: 1px solid rgb(81, 118, 100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 8px;
 }
 .education-container > h3 {
-margin: 6px;
+    margin: 6px;
 }
 /*👉**********EDUCATION TEXT***************** 👈*/
-.education-text {
-width: 70%;
+.education-text-card {
 }
 /*👉***********EDUCATION FORM***************** 👈*/
-.education-form {
-
+.education-form-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgb(156, 231, 194);
+    border-radius: 6px;
+    margin: 10px;
+    width: 70%;
+    padding: 6px;
+    position: relative;
+    padding-bottom: 30px;
 }
-
+.education-form-card * input {
+    background-color: rgb(156, 231, 194);
+    border: none;
+}
+.education-form-card > button {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 90px;
+    height: 30px;
+}
 /*👉**************************************PRACTICAL*****************👈*/
 .practical-container {
-border-bottom: 1px solid rgb(81, 118, 100);
-display: flex;
-flex-direction: column;
-align-items: center;
-width: 100%;
-padding-bottom: 10px;
+    border-bottom: 1px solid rgb(81, 118, 100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 10px;
+    
 }
 .practical-container > h3 {
-margin: 6px;
+    margin: 6px;
 }
 /*👉**********PRACTICAL TEXT***************** 👈*/
-.practical-text {
-width: 70%;
+.practical-text-card {
+    width: 70%;
 }
 .tasks-container {
-
 }
 .tasks-container button {
     margin-right: 5px;
 }
 .tasks-container li {
-    
+    margin-left: 60px;
 }
 /*👉***********PRACTICAL FORM***************** 👈*/
-.practical-form {
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.text-button-container {
-}
-.text-button-container > button {
-    margin: 4px;
-}
-
-#practical-container {
-
-}
-.practical-form {
-    color: blue;
-    display: flex;
+.practical-form-card {
+        display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    background-color: rgb(156, 231, 194);
+    border-radius: 6px;
+    margin: 10px;
+    width: 70%;
+    padding: 6px;
+    position: relative;
+    padding-bottom: 30px;
 }
-.practical-text {
-}
+
+
+
+

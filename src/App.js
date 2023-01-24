@@ -40,8 +40,8 @@ class App extends Component {
                     companyName: "",
                     position: "",
                     tasks: [
-                        { task: "one", key: uniqid(), edit: false },
-                        { task: "task two", key: uniqid(), edit: false },
+                        { task: "one", key: uniqid()},
+                        { task: "task two", key: uniqid()},
                     ],
                     startDate: "",
                     endDate: "",
@@ -52,8 +52,8 @@ class App extends Component {
                     companyName: "",
                     position: "",
                     tasks: [
-                        { task: "one", key: uniqid(), edit: false },
-                        { task: "task two", key: uniqid(), edit: false },
+                        { task: "one", key: uniqid() },
+                        { task: "task two", key: uniqid() },
                     ],
                     startDate: "",
                     endDate: "",
@@ -105,14 +105,15 @@ class App extends Component {
         }
         this.setState(stateCopy);
     };
-    onDuplicateClick = (category, index, subCategory, subIndex) => {
+    onDuplicateClick = (category, index, subCategory, subIndex, e) => {
+        //  e.preventDefault();
         const skills = { skill: "", key: uniqid(), edit: false };
         const practical = {
             companyName: "",
             position: "",
             tasks: [
-                { task: "", key: uniqid(), edit: false },
-                { task: "", key: uniqid(), edit: false },
+                { task: "", key: uniqid() },
+                { task: "", key: uniqid() },
             ],
             startDate: "",
             endDate: "",
@@ -126,7 +127,7 @@ class App extends Component {
             key: uniqid(),
             edit: false,
         };
-        const task = { task: "", key: uniqid(), edit: false };
+        const task = { task: "", key: uniqid() };
         let stateCopy = { ...this.state };
         let newCategory = {};
         let newSubCategory = {};
@@ -134,6 +135,7 @@ class App extends Component {
         if (category === "practical") newCategory = practical;
         if (category === "skills") newCategory = skills;
         if (!!subCategory) {
+            e.preventDefault();
             newSubCategory = task;
             stateCopy[category][index][subCategory].splice(
                 subIndex + 1,

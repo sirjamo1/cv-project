@@ -6,10 +6,17 @@ const EducationText = (props) => {
         props;
     const { schoolName, course, completionDate, key } = education;
     return (
-        <div className="education-text" key={key}>
-            <p>{schoolName ? schoolName : "School name"}</p>
-            <p>{course ? course : "Course"}</p>
-            <p>{completionDate ? completionDate : "year-month-day"}</p>
+        <div className="education-text-card" key={key}>
+            <p>
+                <b>School :</b> {schoolName ? schoolName : "School name"}
+            </p>
+            <p>
+                <b>Course :</b> {course ? course : "Course"}
+            </p>
+            <p>
+                <b>Completion Date :</b> {""}
+                {completionDate ? completionDate : "year-month-day"}
+            </p>
             <div className="text-button-container">
                 <button onClick={() => onEditClick("education", i)}>
                     <MdEdit size={20} />

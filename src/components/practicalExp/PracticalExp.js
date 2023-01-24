@@ -23,6 +23,9 @@ const Practical = (props) => {
                                 key={practical.key}
                                 i={i}
                                 practical={practical}
+                                onEditClick={onEditClick}
+                                onDeleteClick={onDeleteClick}
+                                onDuplicateClick={onDuplicateClick}
                                 handleFormChange={handleFormChange}
                                 onFormSubmit={onFormSubmit}
                             />

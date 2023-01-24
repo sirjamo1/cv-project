@@ -7,7 +7,7 @@ const SkillsText = (props) => {
     return (
         <div className="skills-text" key={key}>
             <h4>{skill ? skill : "Skill"}</h4>
-            <div className="text-button-container">
+            <div className="skill-text-button-container">
                 <button onClick={() => onEditClick("skills", i)}>
                     <MdEdit size={20} />
                 </button>
