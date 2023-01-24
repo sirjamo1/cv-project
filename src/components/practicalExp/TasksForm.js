@@ -5,7 +5,7 @@ const TasksForm = (props) => {
         props;
 if (tasks.length > 0) {
     return (
-        <ul className="tasks-container">
+        <ul className="tasks-form-container">
             <b>Tasks : </b>
             {tasks.map((eachTask, j) => {
                 return (
@@ -26,14 +26,14 @@ if (tasks.length > 0) {
                                 onDuplicateClick("practical", i, "tasks", j, e)
                             }
                         >
-                            <MdPlaylistAdd size={10} />
+                            <MdPlaylistAdd size={14} />
                         </button>
-                        <button
+                        <button className="delete-button"
                             onClick={() =>
                                 onDeleteClick("practical", i, "tasks", j)
                             }
                         >
-                            <MdDeleteForever size={10} />
+                            <MdDeleteForever size={14} />
                         </button>
                     </li>
                 );

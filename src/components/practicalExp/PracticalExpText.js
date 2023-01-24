@@ -18,7 +18,7 @@ const PracticalExpText = (props) => {
             <p>
                 <b>Position :</b> {position ? position : "CEO"}
             </p>
-            <ul className="tasks-container">
+            <ul className="tasks-text-container">
                 <b>Tasks :</b>
                 {tasks.map((eachTask, j) => {
                     return (
@@ -41,7 +41,10 @@ const PracticalExpText = (props) => {
                 <button onClick={() => onDuplicateClick("practical", i)}>
                     <MdPlaylistAdd size={20} />
                 </button>
-                <button onClick={() => onDeleteClick("practical", i)}>
+                <button
+                    className="delete-button"
+                    onClick={() => onDeleteClick("practical", i)}
+                >
                     <MdDeleteForever size={20} />
                 </button>
             </div>

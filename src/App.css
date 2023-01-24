@@ -4,16 +4,10 @@
 }
 input:focus {
     outline: none;
-    /*👉 border: none;👈*/
 }
-/*👉
-<palette>
-  <color name="Light Gray" hex="cacfd6" rgb(202, 207, 214) />
-  <color name="Azure X 11 Web Color" hex="d6e5e3" rgb(214,229,227) " />
-  <color name="Middle Blue Green" hex="9fd8cb" rgb(159, 216, 203) />
-  <color name="Hookers Green" hex="517664" rgb(81, 118, 100) />
-  <color name="Pine Tree" hex="2d3319" rgb(45, 51, 25) />
-</palette>👈*/
+/*👉.delete-button {
+    background-color: rgb(202, 74, 74);
+}👈*/
 .App {
     display: flex;
     flex-direction: column;
@@ -152,22 +146,11 @@ input:focus {
     display: flex;
     justify-content: center;
 }
-#cv-column-two > div > div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: rgb(156, 231, 194);
-    border-radius: 6px;
-    margin: 10px;
-    width: 70%;
-    padding: 6px;
-    position: relative;
-    padding-bottom: 30px;
-}
+
 .text-button-container {
-position: absolute;
-right: 5px;
-bottom: 5px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
 }
 .text-button-container > button {
     margin: 4px;
@@ -186,6 +169,16 @@ bottom: 5px;
 }
 /*👉**********EDUCATION TEXT***************** 👈*/
 .education-text-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgb(156, 231, 194);
+    border-radius: 6px;
+    margin: 10px;
+    width: 70%;
+    padding: 6px;
+    position: relative;
+    padding-bottom: 30px;
 }
 /*👉***********EDUCATION FORM***************** 👈*/
 .education-form-card {
@@ -219,26 +212,13 @@ bottom: 5px;
     align-items: center;
     width: 100%;
     padding-bottom: 10px;
-    
 }
 .practical-container > h3 {
     margin: 6px;
 }
 /*👉**********PRACTICAL TEXT***************** 👈*/
 .practical-text-card {
-    width: 70%;
-}
-.tasks-container {
-}
-.tasks-container button {
-    margin-right: 5px;
-}
-.tasks-container li {
-    margin-left: 60px;
-}
-/*👉***********PRACTICAL FORM***************** 👈*/
-.practical-form-card {
-        display: flex;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     background-color: rgb(156, 231, 194);
@@ -250,6 +230,40 @@ bottom: 5px;
     padding-bottom: 30px;
 }
 
-
-
-
+.tasks-text-container li {
+    margin-left: 60px;
+    padding-top: 3px;
+}
+/*👉***********PRACTICAL FORM***************** 👈*/
+.practical-form-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgb(156, 231, 194);
+    border-radius: 6px;
+    margin: 10px;
+    width: 70%;
+    padding: 6px;
+    position: relative;
+    padding-bottom: 30px;
+}
+.practical-form-card * input {
+    background-color: rgb(156, 231, 194);
+    border: none;
+}
+.practical-form-card > button {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 90px;
+    height: 30px;
+}
+.tasks-form-container button {
+    height: 18px;
+    width: 18px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+.tasks-form-container li {
+    margin-left: 60px;
+}
