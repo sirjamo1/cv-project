@@ -72,6 +72,13 @@ CV creator made for The Odin Project
 <li>Don’t forget to push your solution to GitHub. You should be proud of your work and show it off to the world!</li>
 </ol>
 
+    Change Class Components to Functional
+
+<ol>
+<li>The React documentation provides a whole section on hooks. Read through all steps here. You can also always refer back to this page if you get stuck. The main idea is to understand the concepts, the details come with time.</li>
+<li>Now go back to your CV Project and rewrite it using functional components and hooks.</li>
+</ol>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
