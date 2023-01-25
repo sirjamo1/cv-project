@@ -3,8 +3,7 @@ import React from "react";
 const SkillsForm = (props) => {
     const { skills, handleFormChange, onFormSubmit, i } = props;
     const { skill, key } = skills;
-    return (
-        // <div className="skills-form" key={key}>
+    return ( 
             <form
                 className="skills-form"
                 key={key}
@@ -24,7 +23,6 @@ const SkillsForm = (props) => {
                 ></input>
                 <button type="submit">Submit</button>
             </form>
-        // </div>
     );
 };
 
