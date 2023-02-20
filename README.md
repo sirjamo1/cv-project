@@ -22,7 +22,7 @@
     <a href="https://github.com/sirjamo1/cv-project"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/sirjamo1.io/cv-project">View Demo</a>
+    <a href="https://sirjamo1.github.io/cv-project/">View Demo</a>
     ·
     <a href="https://github.com/sirjamo1/cv-project/issues">Report Bug</a>
     ·
